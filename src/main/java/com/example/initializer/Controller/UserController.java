@@ -2,7 +2,6 @@ package com.example.initializer.Controller;
 
 import com.example.initializer.Repository.UserRepo;
 import com.example.initializer.domain.User;
-import com.sun.org.apache.xpath.internal.operations.Mod;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;

@@ -13,11 +13,11 @@
 </div>
 <table border="1">
   <thead>
-    <tr>
-      <td>ID</td>
-      <td>Name</td>
-      <td>Email</td>
-    </tr>
+  <tr>
+    <td>ID</td>
+    <td>Name</td>
+    <td>Email</td>
+  </tr>
   </thead>
   <tbody>
   <tr th:if="${userList.size()} eq 0">
@@ -25,7 +25,7 @@
   </tr>
   <tr th:each="user : ${userList}">
     <td th:text="${user.id}"></td>
-    <td><a th:href="@{'/users/'+${user.id}}" th:text="${user.name}"></a> </td>
+    <td><a th:href="@{'/users/'+${user.id}}" th:text="${user.name}"></a></td>
     <td th:text="${user.email}"></td>
   </tr>
   </tbody>

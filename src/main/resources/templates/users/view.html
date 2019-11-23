@@ -11,7 +11,7 @@
 <div>
   <P><strong>ID: </strong><span th:text="${user.id}"></span></P>
   <P><strong>Name: </strong><span th:text="${user.name}"></span></P>
-  <P><strong>Email: </strong><span th:text="${user.email}"></span> </P>
+  <P><strong>Email: </strong><span th:text="${user.email}"></span></P>
 </div>
 <div>
   <a th:href="@{'/users/delete/' + ${user.id}}">删除</a>

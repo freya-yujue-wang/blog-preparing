@@ -16,7 +16,7 @@ public class UserRepoImpl implements UserRepo {
 
   @Override
   public User saveOrUpdate(User user) {
-    if(user.getId() == null) {
+    if (user.getId() == null) {
       user.setId(userId.incrementAndGet());
     }
     users.put(user.getId(), user);
