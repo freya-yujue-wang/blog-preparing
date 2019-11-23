@@ -33,7 +33,7 @@ public class UserController {
 
   @GetMapping("/{id}")
   public ModelAndView view(@PathVariable("id") Long id, Model model) {
-    User user = _userRepo.findById(id);
+    User user = _userRepo.findById(id).orElse(null);
     model.addAttribute("user", user);
     model.addAttribute("title", "查看用户");
     return new ModelAndView("users/view", "model", model);
@@ -41,14 +41,14 @@ public class UserController {
 
   @GetMapping("/form")
   public ModelAndView createForm(Model model) {
-    model.addAttribute("user", new User());
+    model.addAttribute("user", new User(null, null, null));
     model.addAttribute("title", "创建用户");
     return new ModelAndView("users/form", "model", model);
   }
 
   @PostMapping
   public ModelAndView saveOrUpdate(User user) {
-    _userRepo.saveOrUpdate(user);
+    _userRepo.save(user);
     return new ModelAndView("redirect:/users");
   }
 
@@ -60,7 +60,7 @@ public class UserController {
 
   @GetMapping("/edit/{id}")
   public ModelAndView edit(@PathVariable("id") Long id, Model model) {
-    User user = _userRepo.findById(id);
+    User user = _userRepo.findById(id).orElse(null);
     model.addAttribute("user", user);
     model.addAttribute("title", "修改用户");
     return new ModelAndView("users/form", "model", model);
